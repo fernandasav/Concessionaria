@@ -1,6 +1,9 @@
+package br.com.concessionaria.automovel;
+
 import br.com.concessionaria.automovel.CorAutomovel;
 import br.com.concessionaria.automovel.MarcaAutomovel;
 import br.com.concessionaria.automovel.ModeloAutomovel;
+import br.com.concessionaria.cliente.Cliente;
 
 public class Automovel {
     private MarcaAutomovel marcaAutomovel;

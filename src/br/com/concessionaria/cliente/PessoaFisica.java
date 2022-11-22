@@ -1,3 +1,5 @@
+package br.com.concessionaria.cliente;
+
 import br.com.concessionaria.cliente.FormaDePagamento;
 
 public class PessoaFisica extends Cliente {

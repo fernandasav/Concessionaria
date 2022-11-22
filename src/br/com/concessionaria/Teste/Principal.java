@@ -1,16 +1,18 @@
+package br.com.concessionaria.Teste;
+
+import br.com.concessionaria.automovel.Automovel;
 import br.com.concessionaria.automovel.CorAutomovel;
 import br.com.concessionaria.automovel.MarcaAutomovel;
 import br.com.concessionaria.automovel.ModeloAutomovel;
+import br.com.concessionaria.cliente.Endereco;
 import br.com.concessionaria.cliente.FormaDePagamento;
+import br.com.concessionaria.cliente.PessoaFisica;
 import br.com.concessionaria.servico.ServicoDeAcessorio;
 import br.com.concessionaria.servico.ServicoDeSeguro;
 import br.com.concessionaria.servico.TiposDeAcessorio;
 import br.com.concessionaria.servico.TiposDeSeguro;
-import com.sun.jdi.Value;
 
-import java.time.DayOfWeek;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Principal {
@@ -56,26 +58,31 @@ public class Principal {
         System.out.println("Digite o número do item escolhido: ");
         int acessorio = entrada.nextInt();
 
+        ServicoDeAcessorio servicoDeAcessorio = new ServicoDeAcessorio();
+
         switch (acessorio) {
 
             case 0:
                 System.out.println("O cliente escolheu: " + TiposDeAcessorio.NENHUM);
+                servicoDeAcessorio.oferecerServico(TiposDeAcessorio.NENHUM);
                 break;
             case 1:
                 System.out.println("O cliente escolheu: " + TiposDeAcessorio.ENGATE);
+                servicoDeAcessorio.oferecerServico(TiposDeAcessorio.ENGATE);
                 break;
             case 2:
                 System.out.println("O cliente escolheu: " + TiposDeAcessorio.FRISOS);
+                servicoDeAcessorio.oferecerServico(TiposDeAcessorio.FRISOS);
                 break;
             case 3:
                 System.out.println("O cliente escolheu: " + TiposDeAcessorio.MIDIA_PLAYER);
+                servicoDeAcessorio.oferecerServico(TiposDeAcessorio.MIDIA_PLAYER);
                 break;
             default:
                 throw new IllegalArgumentException("Essa não é uma opção válida.");
         }
 
-        ServicoDeAcessorio servicoDeAcessorio = new ServicoDeAcessorio();
-        servicoDeAcessorio.oferecerServico();
+
 
         System.out.println("Ofereça seguros ao cliente: ");
         System.out.println("0 = Nenhum ");
@@ -88,25 +95,28 @@ public class Principal {
         System.out.println("Digite o número do item escolhido: ");
         int seguro = entrada.nextInt();
 
+        ServicoDeSeguro servicoDeSeguro = new ServicoDeSeguro();
+
         switch (seguro) {
             case 0:
                 System.out.println("O cliente escolheu: " + TiposDeSeguro.NENHUM);
+                servicoDeSeguro.oferecerServico(TiposDeSeguro.NENHUM);
                 break;
             case 1:
                 System.out.println("O cliente escolheu: " + TiposDeSeguro.PLANO_BASICO);
+                servicoDeSeguro.oferecerServico(TiposDeSeguro.PLANO_BASICO);
                 break;
             case 2:
                 System.out.println("O cliente escolheu: " + TiposDeSeguro.PLANO_INTERMEDIARIO);
+                servicoDeSeguro.oferecerServico(TiposDeSeguro.PLANO_INTERMEDIARIO);
                 break;
             case 3:
                 System.out.println("O cliente escolheu: " + TiposDeSeguro.PLANO_COMPLETO);
+                servicoDeSeguro.oferecerServico(TiposDeSeguro.PLANO_COMPLETO);
                 break;
             default:
                 throw new IllegalArgumentException("Essa não é uma opção válida.");
         }
-
-        ServicoDeSeguro servicoDeSeguro = new ServicoDeSeguro();
-        servicoDeSeguro.oferecerServico();
 
 
         System.out.println("Compra Finalizada! \n");
@@ -118,14 +128,10 @@ public class Principal {
         notaFiscal.imprime("O vendedor foi o(a): " + nomeVendedor);
         notaFiscal.imprime("O comprador foi o(a): " + pessoaFisicaUm.getNome());
         notaFiscal.imprime("Comprou o veículo: " + automovelUm.getMarcaAutomovel());
-        notaFiscal.imprime("Acessorios: " + String.valueOf(acessorio));
-        notaFiscal.imprime("Seguros: " + String.valueOf(seguro));
+        notaFiscal.imprime("Acessorios: " + String.valueOf(servicoDeAcessorio.acessorioEscolhido));
+        notaFiscal.imprime("Seguros: " + String.valueOf(servicoDeSeguro.seguroEscolhido));
         notaFiscal.imprime("Data: " + new Date());
     }
 }
 
-// quando escolhe a opção 0 nos switch o metodo servicodeacessorio e servicodeseguro nao
-// reconhece.
-// na impressao da notafical nao esta saindo o valor escrito de acessorios e seguros
-//n consigo colocar as classes nos pacotes
 

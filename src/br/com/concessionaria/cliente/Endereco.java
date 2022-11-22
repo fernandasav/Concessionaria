@@ -1,3 +1,5 @@
+package br.com.concessionaria.cliente;
+
 public class Endereco {
     private String rua;
     private int numero;

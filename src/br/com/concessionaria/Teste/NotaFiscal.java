@@ -1,4 +1,4 @@
-import java.util.List;
+package br.com.concessionaria.Teste;
 
 public class NotaFiscal<T> {
 
